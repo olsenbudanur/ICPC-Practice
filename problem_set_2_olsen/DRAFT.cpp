@@ -58,6 +58,9 @@ int main(){
 
     while (lights){
         lights = false;
+
+        int liveBalls = 0;
+
         //
         // Tick for every ball.
         for (array<int, 5> ball : balls){
@@ -70,7 +73,7 @@ int main(){
 
             //
             // If ball dead, move on.
-            if (!ball[3]) continue;
+            if (ball[3] < 0) continue;
 
             //
             // Take one life off for this iteration.
@@ -92,38 +95,52 @@ int main(){
                     ball[1] -= 1;
                     break;
             }
-
+            
             //
             // Check if the ball hit a wall.
             if (ball[0] < 0){ // left wall
                 ball[0] = 0;
                 ball[2] = bounce(ball[2]);
                 if (ball[3]) ball[3] -= wall_cost;
+                //
+                // Switch the lights on since the ball is still alive!
+                if (ball[3] > 0) lights = true;
                 continue;
             }
             else if (ball[0] == m){ // right wall
                 ball[0] = m - 1;
                 ball[2] = bounce(ball[2]);
                 if (ball[3]) ball[3] -= wall_cost;
+                //
+                // Switch the lights on since the ball is still alive!
+                if (ball[3] > 0) lights = true;
                 continue;
             }
             else if (ball[1] < 0){ // bottom wall
                 ball[1] = 0;
                 ball[2] = bounce(ball[2]);
                 if (ball[3]) ball[3] -= wall_cost;
+                //
+                // Switch the lights on since the ball is still alive!
+                if (ball[3] > 0) lights = true;
                 continue;
             } 
             else if (ball[1] == n){ // top wall
                 ball[1] = n - 1;
                 ball[2] = bounce(ball[2]);
                 if (ball[3]) ball[3] -= wall_cost;
+                //
+                // Switch the lights on since the ball is still alive!
+                if (ball[3] > 0) lights = true;
                 continue;
             }
+            
 
             //
             // Check if the wall hit a bumper.
             // This could be O(1) lookup but whatever
             for (array<int, 4> bumper : bumpers){
+                
                 //
                 // We hit a bumper.
                 if (bumper[0] == ball[0] && bumper[1] == ball[1]){
