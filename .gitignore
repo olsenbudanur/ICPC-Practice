@@ -3,4 +3,9 @@ ex.out
 in.txt
 out.txt
 sol.txt
+<<<<<<< HEAD
 .vscode
+=======
+stdc++.h
+workingfile.cpp
+>>>>>>> f459301e93497184447179b16e53fd4b78c53c25
