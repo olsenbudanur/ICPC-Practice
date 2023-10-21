@@ -136,6 +136,7 @@ int main(){
         //
         // Print out all sortings.
         // If there was a cycle, don't print.
+        // I need to understand why the size is 0...
         if (allTopoSorts.size() == 0){
             cout << "NO" << "\n";
         }
