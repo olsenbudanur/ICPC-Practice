@@ -12,7 +12,8 @@ void backtrack(string& currTopoSort,
     // If we are at the end of a run
     // add this path to the possible sortings.
     if (currTopoSort.size() == adjList.size()){
-        allTopoSorts.push_back(currTopoSort);
+        allTopoSorts.push_back(currTopoSort); // push back by copy.
+        // there is only a singular currTopoSort...
         return;
     }
 
@@ -58,8 +59,6 @@ void backtrack(string& currTopoSort,
     }
 
 }
-
-
 
 
 int main(){
