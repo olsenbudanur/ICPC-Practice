@@ -24,6 +24,9 @@ void backtrack(string& currTopoSort,
         // If this element has indegrees, it cannot be removed
         if (indegrees[curr - 'A'] != 0) continue;
         
+        //
+        // If we've already went down this element in the path,
+        // skip...
         if (currTopoSort.find(curr) != string::npos){
             continue;
         }
