@@ -14,7 +14,7 @@ int main(){
     //
     // Sigh, this fails since CPP doesn't have a BigInt class. 
     // Need to use Java for questions with ints larger than 64 bits
-    // cust the CPP STD sux
+    // cus the CPP STD sux
     int curr, idx, negMin, posMax, answ, tmp;
     int nums[101];
 
